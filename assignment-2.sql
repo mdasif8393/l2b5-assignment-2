@@ -109,4 +109,5 @@ select
 FROM sightings;
 
 -- 9️⃣ Delete rangers who have never sighted any species
-    delete from rangers where (select DISTINCT ranger_id from sightings;)
+    delete from rangers 
+        where ranger_id not in (select DISTINCT ranger_id from sightings)
