@@ -80,3 +80,7 @@ select r.name as name, count(r.name) as total_sightings from
       
 
 -- 5️⃣ List species that have never been sighted.
+select * FROM
+    species as sp JOIN sightings as si
+        on sp.species_id = si.sighting_id
+            where sp.species_id not in (si.species_id);
